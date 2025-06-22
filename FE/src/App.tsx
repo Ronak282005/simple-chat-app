@@ -19,7 +19,9 @@ function App() {
   return (
     <>
     <div>
-      <div>{srvMsg}</div>
+      <div>{srvMsg.map((m)=>(
+        <span>{m}</span>
+      ))}</div>
       <input type="text" placeholder='msg....' onChange={(e)=>{
         setMsg(e.target.value);
       }}/>
