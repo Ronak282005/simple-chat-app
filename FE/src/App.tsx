@@ -23,6 +23,7 @@ function App() {
         setMsg(e.target.value);
       }}/>
       <button onClick={sendMessage}>Send</button>
+      <span>{srvMsg}</span>
     </div>      
     </>
   )
