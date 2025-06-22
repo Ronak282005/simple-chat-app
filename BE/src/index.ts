@@ -14,9 +14,8 @@ wss.on("connection", (socket,req) => {
   console.log('====================================');
   allSockets.push(socket);
   socket.on("message", (e) => {
-    for (let i = 0; i < allSockets.length; i++) {
-      const s = allSockets[i];
-      s.send(e.toString() + ": from the " + ip);
-    }
+    allSockets.forEach((s)=>{
+        s.send(e.toString() + ": from the " + ip);
+    })
   });
 });
