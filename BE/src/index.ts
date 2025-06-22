@@ -21,6 +21,15 @@ wss.on("connection", (socket,req) => {
             room : parsedMessage.payload.roomId
         })
       }
+      if(parsedMessage.type === "chat"){
+        const currentUser = allSockets.find((x)=>{
+            x.socket == socket
+        })?.room
+
+        const msg = allSockets.find((x)=>{
+            x.room == currentUser
+        })?.socket.send(parsedMessage.payload.message)
+      }
 
   });
 });
